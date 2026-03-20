@@ -70,9 +70,11 @@ let uListEl = document.getElementById("uList-el");
 
 
 function renderList() {
-    //render/appendd list item to ul element
+    //render/append list item to ul element
     for (let i = 0; i < shoppingList.length; i++) {
         let li = document.createElement("li");
+
+        //need more practice adding and appending
         li.textContent = shoppingList[i];
         uListEl.appendChild(li);
     }
