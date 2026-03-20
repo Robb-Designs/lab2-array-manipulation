@@ -4,20 +4,20 @@
 let shoppingList = [];
 
 //function that takes an item as a parameter and adds it to the shoppingList array
-// const addItem = (item) =>{
-//     return shoppingList.push(item);
-// }
+const addItem = (item) => {
+    return shoppingList.push(item);
+}
 
 //function called removeLastItem that removes the last item from the shoppingList array
-const removeLastItem = ()=>{
+const removeLastItem = () => {
     return shoppingList.pop();
 }
 
 //a function called displayList that logs all items in the shoppingList array to the console.
- const displayList = ()=>{
+const displayList = () => {
     console.log(shoppingList)
- }
- //clg testing
+}
+//clg testing
 //  addItem("Apples");
 //  addItem("Peaches");
 //  addItem("Chocolate Milk");
@@ -31,13 +31,15 @@ const removeLastItem = ()=>{
 
 
 
- // TASK 2: FILTER AND SEARCH
 
- //Modify the addItem function to only add the item if it is not already in the shoppingList array.
- const addItem = (item) =>{
-    if(!shoppingList.includes(item)){
-    return shoppingList.push(item);
-    }else{
+
+// TASK 2: FILTER AND SEARCH
+
+//Modify the addItem function to only add the item if it is not already in the shoppingList array.
+const addItemMoified = (item) => {
+    if (!shoppingList.includes(item)) {
+        return shoppingList.push(item);
+    } else {
         console.log(`${item} is already on your list`)
     }
 }
@@ -50,4 +52,47 @@ const filterItems = (searchTerm) => {
 };
 
 
-console.log(filterItems("milk"))
+console.log(filterItems("milk"));
+
+
+
+
+
+
+
+// TASK 3: REDDNDER TO BROWSER
+
+//caching DOM elements
+let inputEl = document.getElementById("input-el");
+let btnEl = document.getElementById("add-btn");
+let removeBtn = document.getElementById("remove-btn");
+let uListEl = document.getElementById("uList-el");
+
+
+function renderList() {
+    //render/appendd list item to ul element
+    for (let i = 0; i < shoppingList.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = shoppingList[i];
+        uListEl.appendChild(li);
+    }
+}
+
+function addItem() {
+    let value = inputEl.value;
+
+    if (value !== "") {
+        shoppingList.push(value);
+        inputEl.value = "";
+        renderList();
+    }
+}
+
+function removeLastItem() {
+    shoppingList.pop();
+    renderList();
+}
+
+
+btnEl.addEventListener("click", addItem);
+removeBtn.addEventListener("click", removeLastItem);
