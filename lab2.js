@@ -17,3 +17,13 @@ const removeLastItem = ()=>{
  const displayList = ()=>{
     console.log(shoppingList)
  }
+
+
+ //clg testing
+ addItem("Apples");
+ addItem("Peaches");
+ addItem("Chocolate Milk");
+ removeLastItem()
+ displayList()
+
+ console.log(shoppingList);
