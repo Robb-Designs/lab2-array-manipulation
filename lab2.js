@@ -64,7 +64,7 @@ console.log(filterItems("milk"));
 
 //caching DOM elements
 let inputEl = document.getElementById("input-el");
-let btnEl = document.getElementById("add-btn");
+let addBtn = document.getElementById("add-btn");
 let removeBtn = document.getElementById("remove-btn");
 let uListEl = document.getElementById("uList-el");
 
